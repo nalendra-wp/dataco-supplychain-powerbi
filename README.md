@@ -31,22 +31,8 @@ Role-based access is configured for regional markets (`Market_Europe` and `Marke
 
 ## Repository Structure
 
+```text
 ├── Data/          # Dataset source notes (README.md)
 ├── Images/        # Dashboard and RLS preview screenshots (.png)
 ├── Pbix/          # Power BI report file (.pbix)
 └── README.md      # Project documentation
-
-## Key Technical Highlights
-- **Data Modeling:** Star schema separating transactional order facts from date, geography, customer, and product dimensions.
-- **DAX Measures:** 12 standardized measures grouped across commercial performance, logistics SLA, and order risk/fraud monitoring.
-- **Security & Governance:** Role-based filtering via `Market_Europe` and `Market_PacificAsia`.
-```[cite: 2, 10, 11, 12]
-
----
-
-### Urutan Singkat di Lokal Sebelum Upload
-1. Pastikan di dalam folder `Data/` hanya ada **`README.md`** (bukan `README.md.txt` dan bukan file CSV raksasa).
-2. Pastikan di folder utama ada **`README.md`**, folder **`Data/`**, folder **`Images/`** (isi `.png`), dan folder **`Pbix/`** (isi `.pbix`).
-3. Upload semuanya ke repositori GitHub `nalendra-wp` (`dataco-supplychain-powerbi`).
-
-Sudah beres dibuat dua file `.md` tersebut di lokal?
