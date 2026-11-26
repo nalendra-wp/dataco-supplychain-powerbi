@@ -41,15 +41,18 @@ Interactive Power BI dashboard and data model for the DataCo Supply Chain datase
 - **Regional access:** RLS previews demonstrate role filtering (`Market_Europe`) rather than live enterprise identity provider integration.
 
 ## Repository structure
-
+```text
 ├── Data/          # Dataset notes (README.md)
 ├── Images/        # Dashboard and RLS screenshots (.png)
 ├── Pbix/          # Power BI report file (.pbix)
 ├── LICENSE        # Repository license
 └── README.md      # Project documentation
 
+```markdown
 ## Tools
 Power BI Desktop · DAX · Star Schema · Row-Level Security
 
-##Author
-Nalendra Whisnu Pinilih · Information Systems, Universitas Dian Nuswantoro · GitHub
+## Author
+Nalendra Whisnu Pinilih  
+Information Systems graduate, Universitas Dian Nuswantoro · BNSP-certified Associate Data Scientist  
+GitHub · nalendrawp@gmail.com
