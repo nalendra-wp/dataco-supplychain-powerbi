@@ -36,9 +36,11 @@ Interactive Power BI dashboard and data model for the DataCo Supply Chain datase
 ![Row-Level Security - Market_Europe](Images/rls-market-europe.png)
 
 ## Limitations
-- **Scope & filtering:** Metrics reflect the configured report logic, valid/shipped/risk order definitions, and 2015–2018 dataset coverage.
-- **Observational data:** Patterns in late delivery, discounting, and fraud/cancellation risk show associations in the dataset rather than proven causation.
-- **Regional access:** RLS previews demonstrate role filtering (`Market_Europe`) rather than live enterprise identity provider integration.
+
+- **Historical & Static Scope:** The dataset covers 2015–2018 transactions as a static snapshot; real-time streaming or incremental refresh is not configured.
+- **Simulated / Public Dataset Artifacts:** As a public benchmark dataset, some regional distributions and order risk labels reflect stylized patterns rather than live ERP production records.
+- **Desktop RLS Demonstration:** Row-Level Security roles (`Market_Europe` and `Market_PacificAsia`) are configured and tested in Power BI Desktop via *View as*, as publishing to Power BI Service requires a Pro/PPU workspace license.
+- **No External Cost Benchmarks:** Logistics SLA and profit margin analyses rely strictly on internal order fields without external carrier rate cards or macroeconomic inflation adjustments.
 
 ## Repository structure
 - `Data/` — Dataset notes (`README.md`)
@@ -51,6 +53,6 @@ Interactive Power BI dashboard and data model for the DataCo Supply Chain datase
 Power BI Desktop · DAX · Star Schema · Row-Level Security
 
 ## Author
-Nalendra Whisnu Pinilih  
+Nalendra Whisnu Pinilih
 Information Systems graduate, Universitas Dian Nuswantoro · BNSP-certified Associate Data Scientist  
 [GitHub](https://github.com/nalendra-wp) · nalendrawp@gmail.com
