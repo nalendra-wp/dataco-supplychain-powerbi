@@ -1,38 +1,55 @@
 # DataCo Supply Chain Power BI Dashboard
 
-End-to-end Power BI analytics solution built on the **DataCo Supply Chain** dataset (2015–2018), structured around a star schema (`Fact_Orders`, `Dim_Date`, `Dim_Geography`, `Dim_Customer`, `Dim_Product`) with **12 DAX measures**, a **Clean Teal** visual theme (`Segoe UI`), and **Row-Level Security (RLS)** (`Market_Europe` and `Market_PacificAsia`).
+Interactive Power BI dashboard and data model for the DataCo Supply Chain dataset (2015–2018), structured into a star schema with 12 DAX measures and Row-Level Security (RLS) to answer: how do revenue and profit perform across segments and categories, how is delivery SLA across markets and shipping modes, and where is order fraud/cancellation risk concentrated?
 
-## Dashboard Pages & Previews
+## Key findings
+- **Commercial scale (2015–2018):** Total valid orders reach 62,897 with $31.64M in Net Revenue, $3.81M in Total Profit (12% profit margin), and 18.7% loss-making orders.
+- **Customer & category mix:** Consumer is the largest segment at $16M (51.88%), followed by Corporate ($10M, 30.4%) and Home Office ($6M, 17.72%), with Fishing, Cleats, and Camping & Hiking leading category revenue.
+- **Logistics SLA:** Overall Late Delivery Rate is 57.3% with an average shipping delay of 0.57 days across 65,752 shipped orders, staying consistently high across all five markets and noticeable across shipping modes.
+- **Order risk & fraud:** Revenue at Risk totals $1.41M (2.26% fraud rate), driven by SUSPECTED_FRAUD and CANCELED orders, with higher risk concentration in Europe and LATAM and elevated rates on TRANSFER payments.
 
-### 1. Annual Performance & KPI Summary (2015–2018)
-Summarizes key commercial, logistics SLA, and risk metrics across 2015–2018 alongside total figures and scope/methodology notes.
+## Data
+- **Source:** DataCo Smart Supply Chain Dataset (2015–2018), publicly available on Kaggle.
+- **Licensing & availability:** Raw dataset files are not redistributed in this repository due to GitHub file size limits; see `Data/README.md` for dataset notes.
 
+## What the model & report include
+1. **Star schema modeling:** Separates order transaction facts from date, geography, customer, and product dimensions.
+2. **12 DAX measures:** Covers commercial KPIs (`Net Revenue`, `Total Profit`, `Profit Margin %`, `YoY Revenue Growth %`, `Loss-Making Orders %`, `Avg Discount Rate %`, `Total Valid Orders`), logistics SLA (`Orders Shipped (by Ship Date)`, `Late Delivery Rate %`, `Avg Shipping Delay (Days)`), and risk (`Revenue at Risk`, `Fraud Rate %`).
+3. **Row-Level Security (RLS):** Configured `Market_Europe` and `Market_PacificAsia` roles to restrict regional access (verified via `Market_Europe` view at $421K Revenue at Risk and 2.30% Fraud Rate).
+4. **Four report pages:** Annual Performance & KPI Summary (2015–2018), Executive Commercial & Profit Overview, Supply Chain & Logistics SLA, and Order Risk & Fraud using a Clean Teal theme (`Segoe UI`).
+
+## Dashboard previews
+
+### Annual Performance & KPI Summary (2015–2018)
 ![Annual Performance & KPI Summary](Images/kpi-summary-table.png)
 
-### 2. Executive Commercial & Profit Overview
-Tracks overall commercial scale and profitability across segments, time periods, and product categories (`$32M` Net Revenue, `$4M` Total Profit, `12%` Profit Margin, `18.7%` Loss-Making Orders).
-
+### Executive Commercial & Profit Overview
 ![Executive Commercial & Profit Overview](Images/executive-overview.png)
 
-### 3. Supply Chain & Logistics SLA
-Monitors shipping performance across markets and shipping modes (`57.3%` Late Delivery Rate, `0.57` Avg Shipping Delay Days, `66K` Orders Shipped).
-
+### Supply Chain & Logistics SLA
 ![Supply Chain & Logistics SLA](Images/logistics-sla.png)
 
-### 4. Order Risk & Fraud
-Highlights financial exposure and fraud patterns across markets, order statuses (`SUSPECTED_FRAUD` and `CANCELED`), and payment methods (`$1M` Revenue at Risk, `2.26%` Fraud Rate).
-
+### Order Risk & Fraud
 ![Order Risk & Fraud](Images/order-risk-fraud.png)
 
-## Row-Level Security (RLS)
-Role-based access is configured for regional markets (`Market_Europe` and `Market_PacificAsia`). Below is a preview filtered under the `Market_Europe` role (`$421K` Revenue at Risk, `2.30%` Fraud Rate):
-
+### Row-Level Security (`Market_Europe`)
 ![Row-Level Security - Market_Europe](Images/rls-market-europe.png)
 
-## Repository Structure
+## Limitations
+- **Scope & filtering:** Metrics reflect the configured report logic, valid/shipped/risk order definitions, and 2015–2018 dataset coverage.
+- **Observational data:** Patterns in late delivery, discounting, and fraud/cancellation risk show associations in the dataset rather than proven causation.
+- **Regional access:** RLS previews demonstrate role filtering (`Market_Europe`) rather than live enterprise identity provider integration.
 
+## Repository structure
 ```text
-├── Data/          # Dataset source notes (README.md)
-├── Images/        # Dashboard and RLS preview screenshots (.png)
+├── Data/          # Dataset notes (README.md)
+├── Images/        # Dashboard and RLS screenshots (.png)
 ├── Pbix/          # Power BI report file (.pbix)
+├── LICENSE        # Repository license
 └── README.md      # Project documentation
+
+Tools
+Power BI Desktop · DAX · Star Schema · Row-Level Security
+
+Author
+Nalendra Whisnu Pinilih · Information Systems, Universitas Dian Nuswantoro · GitHub
